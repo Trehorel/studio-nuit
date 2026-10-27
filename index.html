@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Studio Nuit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+<header>
+  <span class="brand">Studio Nuit</span>
+  <nav><a href="#accueil" id="n1">Accueil</a><a href="#studio" id="n2">Studio</a></nav>
+</header>
+
+<main id="home">
+  <div>
+    <h1>Un studio de musique dans ton navigateur</h1>
+    <p>Place des notes sur la grille, choisis une gamme et règle le mix. Tout se joue en direct, sans rien télécharger.</p>
+    <a class="btn main" href="#studio">Ouvrir le studio</a>
+    <div class="hint">Conçu pour ordinateur. La barre d’espace lance et arrête la lecture.</div>
+  </div>
+  <div class="pv" id="pvbox"><canvas id="pv" aria-label="Aperçu de la grille de notes"></canvas></div>
+</main>
+
+<main id="studio" hidden>
+  <div class="bar">
+    <button class="btn main" id="play" style="min-width:92px">Lire</button>
+    <label>Tempo <input type="range" id="bpm" min="60" max="180" value="96"><span class="val" id="bpmv">96</span></label>
+    <label>Tonalité <select id="root"></select></label>
+    <label>Gamme <select id="scale"></select></label>
+    <span class="sp"></span>
+    <button class="btn" id="clear">Effacer la piste</button>
+  </div>
+  <div class="work">
+    <div class="rollbox"><canvas id="roll" tabindex="0" aria-label="Grille de notes : clique ou fais glisser pour placer des notes"></canvas></div>
+    <aside class="side">
+      <h2>Pistes</h2>
+      <div id="tracks"></div>
+      <div class="master">
+        <h2>Effets</h2>
+        <div class="row"><label for="rv">Réverbération</label><input type="range" id="rv" min="0" max="100" value="30"></div>
+        <div class="row"><label for="ec">Écho</label><input type="range" id="ec" min="0" max="100" value="25"></div>
+        <div class="row"><label for="mv">Volume général</label><input type="range" id="mv" min="0" max="100" value="80"></div>
+      </div>
+    </aside>
+  </div>
+</main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
